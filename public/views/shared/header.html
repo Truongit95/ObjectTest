@@ -1,0 +1,37 @@
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+            <a ui-sref="home"> <img src="/images/6486544_orig.gif" class=" image-topnav" style="margin-top:10px"/></a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav"style="margin-top:10px">
+                <li><a ui-sref="home" ui-sref-active="active">Trang chủ</a></li>
+                <li><a ui-sref="exam" ui-sref-active="active">Thi</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" ng-if="statusLogin==undefined || statusLogin==0" style="margin-top: 15px">
+                <!--nav not login-->
+                <li><a class="btn_signin" ui-sref="login">Đăng nhập</a></li>
+                <li><a class="btn_register" ui-sref="register">Đăng ký</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" ng-if="statusLogin==1">
+                <!--nav not login-->
+                <li class="dropdown">
+                    <a href="info" class="dropdown-toggle profile-image" data-toggle="dropdown">
+                        <img src="images/user.png" style="width: 50px"> {{name}} <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="" ng-click="goinfo()"><i class="fa fa-cog"  ui-sref="#"></i> Thông tin cá nhân</a></li>
+                        <li class="divider"></li>
+                        <li><a ng-click="onLogout()"><i class="fa fa-sign-out"></i>Đăng xuất</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>

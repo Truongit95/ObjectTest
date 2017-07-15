@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Online Test</title>
+    <!--CSS-->
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/sweetalert.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/toastr.css">
+    <!--Javascript-->
+    <script src="./libs/jquery.min.js"></script>
+    <script src="./libs/bootstrap.js"></script>
+    <script src="./libs/angular.js"></script>
+    <script src="./libs/angular-cookies.js"></script>
+    <script src="./libs/angular-ui-router.min.js"></script>
+    <script src="./libs/SweetAlert.min.js"></script>
+    <script src="./libs/SweetAlert.js"></script>
+    <script src="./libs/jquery.md5.js"></script>
+    <script src="./libs/jquery.validate.js"></script>
+    <script src="./libs/jquery.blockUI.js"></script>
+    <script src="./libs/toastr.min.js"></script>
+</head>
+
+<body ng-app="user" ng-controller="rootCtrl" >
+    <div ng-if="$root.isLogin" ng-include src="'/views/shared/header.html'" id="idhead"></div>
+
+    <div class="container body" >
+        <div ui-view></div>
+    </div>
+
+    <div ng-if="$root.isLogin" id="idfood">
+		<div ng-include src="'/views/shared/footer.html'" ></div>
+	</div>
+
+    <!-- /.container -->
+
+    <!--main-->
+    <script src="app.js"></script>
+
+    <!--controllers-->
+    <script src="./js/Controller/root/rootCtrl.js"></script>
+    <script src="./js/Controller/Register/registerCtrl.js"></script>
+    <script src="./js/Controller/Login/loginCtrl.js"></script>
+    <script src="./js/Controller/Home/homeCtrl.js"></script>
+    <script src="./js/Controller/Exam/examCtrl.js"></script>
+    <script src="./js/Controller/Exam/examDetailCtrl.js"></script>
+    <script src="./js/Controller/Quiz/quizCtrl.js"></script>
+    <script src="./js/Controller/User/userCtrl.js"></script>
+    <script src="./js/Controller/Result/resultCtrl.js"></script>
+    <!--services-->
+    <script src="./js/Services/apiService.js"></script>
+</body>
+
+</html>

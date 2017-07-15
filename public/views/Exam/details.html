@@ -1,0 +1,38 @@
+<div class="col-md-10 col-md-offset-1">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4>
+                <p class="font-bold">Thông tin chi tiết</p>
+            </h4>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-2 img-responsive">
+                    <img class="img-exam" src="images/c.png" alt="de-thi-so-1">
+                </div>
+                &nbsp;
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p>Tên môn: <label>{{listDetailExam.Name}}</label> </p>
+                        </div>
+                        <div class="col-md-4">
+                            <p>Ngày tạo: <label>{{listDetailExam.CreateDate | date: 'dd/MM/yyyy':'UTC'}}</label></p>
+                        </div>
+                        <div class="col-md-4">
+                            <p>Thời gian thi: <label>{{Duration}} phút</label></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pading">
+                <div class="col-xs-2 text-left">
+                    <button ng-click="onBackExam()" type="button" class="btn btn-primary">Trở về</button>
+                </div>
+                <div class="col-xs-9 text-center">
+                    <button ng-click="onStartQuiz()" type="button" class="btn btn-primary">Bắt đầu làm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

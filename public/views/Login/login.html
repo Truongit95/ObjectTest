@@ -1,0 +1,31 @@
+<div class="row text-center">
+    <img src="/images/6486544_orig.gif" class=" image-login-header" />
+</div>
+<div class="well col-md-6 col-md-offset-3">
+    <form id="formlogin">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="taikhoan">Tài khoản:</label>
+                    <input type="text" class="form-control" ng-model="user" name="user" />
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="pwd">Mật khẩu:</label>
+                    <input type="password" class="form-control" ng-model="pwd" name="pwd" ng-readonly="checked">
+                </div>
+            </div>
+            <div class="checkbox">
+                <label>
+				<input type="checkbox">
+				<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+				Ghi nhớ đăng nhập
+			</label>
+            </div>
+            <div class="text-center">
+                <button ng-click="onLogin()" type="submit" class="btn btn-primary">Đăng nhập</button>
+            </div>
+        </div>
+    </form>
+</div>

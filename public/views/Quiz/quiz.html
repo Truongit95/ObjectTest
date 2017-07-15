@@ -1,0 +1,146 @@
+<div class="margin-top panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>Tên môn: <label>{{examInfo.Name}}</label> </p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Ngày tạo: <label>{{examInfo.CreateDate | date: 'dd/MM/yyyy':'UTC'}}</label></p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Thời gian thi: <label>{{Duration}} phút</label></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class=" col-xs-10 ">
+    <div class="panel panel-primary ">
+        <div class="panel-body ">
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-sm-12 " ng-repeat="cauhoi in listQuestion">
+                        <div ng-if="cauhoi.Question.Audio==false">
+                            <div>
+                                <label>Câu: {{$index+1}}</label>
+                            </div>
+                            <label>
+                                <label ng-bind-html="cauhoi.Question.Content | trustAsHtml"> {{cauhoi.Question.Content}}?</label> 
+                                <input class="hidden" value="{{cauhoi.QuestionId}}" id="questionid{{cauhoi.QuestionId}}">
+                            </label>
+                            <ul ng-repeat="tl in cauhoi.Question.Answers" >
+                                <div class="radio" >
+                                    <label>
+                                        <input type="radio" name="{{$parent.$index}}"  ng-click="checkStuff(id,cauhoi.QuestionId,tl.Id)" id="{{tl.Id}}">
+                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        <div ng-if="!check(tl.Content)">
+                                            <label ng-bind-html="tl.Content| trustAsHtml">{{tl.Content}} </label> 
+                                        </div>
+                                        <div ng-if="check(tl.Content)">
+                                            <img ng-src="{{tl.Content}}"  class="img-responsive">
+                                        </div>
+                                     </label>
+                                </div>
+                            </ul>
+                            <hr>
+                        </div>
+                        <div ng-if="cauhoi.Question.Audio==true">
+                            <div>
+                                <label >Câu: {{$index+1}}</label>
+                            </div>
+                            <audio src="{{cauhoi.Question.Content}}" class="playback" controls="true"></audio>
+                            <label> 
+                                <input class="hidden" value="{{cauhoi.questionId}}" id="questionid{{cauhoi.questionId}}">
+                            </label>
+                            <ul ng-repeat="tl in cauhoi.Question.Answers">
+                                <div class="radio">
+                                    <label>
+                                    <input type="radio" name="{{$parent.$index}}"ng-click="checkStuff(cauhoi.QuestionId,tl.Id)">
+                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                    {{tl.Content}}
+                                </label>
+                                </div>
+                            </ul>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-xs-2">
+    <div class="fixed-left">
+        <div class="panel panel-primary ">
+            <div class="panel-body ">
+                <div class="row text-center row-pading" data-ng-init="countdown()">
+                    <h3><label>{{seconds | secondsToDate | date:'HH:mm:ss'}}</label></h3>
+                </div>
+                <div class="row text-center row-pading ">
+                    <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-danger" ng-click="checkResult()">Kiểm tra</button>
+                </div>
+                <div class="row text-center row-pading ">
+                    <button ng-click="onResult()" type="button " class="btn btn-success ">Nộp bài</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal" role="dialog" style="margin-top:150px">
+    <div class="modal-dialog" style="width:70%">
+      <!-- Modal content-->
+      <div class="modal-content" >
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Kiểm tra câu chọn</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+               <table style="width:95%">
+                    <tbody >
+                        <tr> 
+                            <!--<td  ng-repeat="check in checklistResult ">
+                                {{$index+1}}
+                                <label ng-if="check.AnnswerCurrentChoose!=null">
+                                   <img src="/images/Ok.png"width="15px">
+                               </label>
+                               <label ng-if="check.AnnswerCurrentChoose==null">
+                                   <img src="/images/No.png"width="15px">
+                               </label>
+                            </td>-->
+                             <td  ng-repeat="check in checklistResult ">
+                                {{$index+1}}
+                                <label ng-repeat="qs in check.Question.Answers | limitTo:4" >
+                                   <label ng-if="choosecurrent(check.AnnswerCurrentChoose,qs.Id,qs.Order)==0">
+                                      <div ng-if="notchoose(1)==true">
+										 <img src="/images/No.png"width="15px">
+									  </div>
+                                   </label>
+                                   <label ng-if="choosecurrent(check.AnnswerCurrentChoose,qs.Id,qs.Order)==1">
+                                        A
+                                   </label>
+                                    <label ng-if="choosecurrent(check.AnnswerCurrentChoose,qs.Id,qs.Order)==2">
+                                        B
+                                   </label>
+                                    <label ng-if="choosecurrent(check.AnnswerCurrentChoose,qs.Id,qs.Order)==3">
+                                        C
+                                   </label>
+                                    <label ng-if="choosecurrent(check.AnnswerCurrentChoose,qs.Id,qs.Order)==4">
+                                        D
+                                   </label>
+                               </label>
+                            </td>
+                        </tr>
+                    </tbody>
+               </table>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+        </div>
+      </div>
+    </div>
+  </div>

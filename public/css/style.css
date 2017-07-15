@@ -1,0 +1,216 @@
+    .checkbox label:after,
+    .radio label:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+    
+    .checkbox .cr,
+    .radio .cr {
+        position: relative;
+        display: inline-block;
+        border: 1px solid #a9a9a9;
+        border-radius: .25em;
+        width: 1.3em;
+        height: 1.3em;
+        float: left;
+        margin-right: .5em;
+    }
+    
+    .radio .cr {
+        border-radius: 50%;
+    }
+    
+    .checkbox .cr .cr-icon,
+    .radio .cr .cr-icon {
+        position: absolute;
+        font-size: .8em;
+        line-height: 0;
+        top: 50%;
+        left: 20%;
+    }
+    
+    .radio .cr .cr-icon {
+        margin-left: 0.04em;
+    }
+    
+    .checkbox label input[type="checkbox"],
+    .radio label input[type="radio"] {
+        display: none;
+    }
+    
+    .checkbox label input[type="checkbox"]+.cr>.cr-icon,
+    .radio label input[type="radio"]+.cr>.cr-icon {
+        transform: scale(3) rotateZ(-20deg);
+        opacity: 0;
+        transition: all .3s ease-in;
+    }
+    
+    .checkbox label input[type="checkbox"]:checked+.cr>.cr-icon,
+    .radio label input[type="radio"]:checked+.cr>.cr-icon {
+        transform: scale(1) rotateZ(0deg);
+        opacity: 1;
+    }
+    
+    .checkbox label input[type="checkbox"]:disabled+.cr,
+    .radio label input[type="radio"]:disabled+.cr {
+        opacity: .5;
+    }
+    
+    .checkbox input[type="checkbox"]:checked+label::before {
+        background-color: #4DAB76;
+        border-color: #4DAB76;
+    }
+    
+    .image-login-header {
+        max-width: 200px;
+        margin-top: 50px;
+        vertical-align: middle;
+        margin-left: 20px;
+    }
+    
+    .well {
+        border-radius: 4px;
+        background-color: #ffffff;
+        border-color: #428bca;
+    }
+    
+    .image-topnav {
+        max-width: 150px;
+        vertical-align: middle;
+    }
+    
+    .panel-footer {
+        background-color: #3366CC;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    
+    .row-pading {
+        padding: 10px;
+    }
+    
+    .img-exam {
+        width: 100px;
+        ;
+        height: auto;
+    }
+    
+    hr {
+        border-top: 1px solid black;
+        border-style: dashed;
+    }
+    
+    .border-color {
+        border: 1px solid #428bca;
+        border-radius: 4px;
+        border-style: dashed;
+        padding: 15px;
+    }
+    
+    .label {
+        color: #ffffff;
+    }
+    
+    .margin-top {
+        margin-top: 15px;
+    }
+    
+    table,
+    th,
+    td {
+        border: 1px solid black;
+    }
+    
+    .btn_signin,
+    .btn_register {
+        margin-left: 5px;
+    }
+    
+    .btn_signin {
+        border: 1px solid #97b7ed;
+        padding: 3px 10px !important;
+    }
+    
+    .btn_register {
+        background: #07bf07;
+        padding: 3px 15px !important;
+        border: 1px solid #97b7ed;
+    }
+    
+    .has-success .form-control {
+        border-color: #1ab394;
+    }
+    
+    .has-warning .form-control {
+        border-color: #f8ac59;
+    }
+    
+    .has-error .form-control {
+        border-color: #ed5565;
+    }
+    
+    .has-success .control-label {
+        color: #1ab394;
+    }
+    
+    .has-warning .control-label {
+        color: #f8ac59;
+    }
+    
+    .has-error .control-label {
+        color: #ed5565;
+    }
+    
+    label.error {
+        color: #cc5965;
+        display: inline-block;
+        margin-left: 5px;
+    }
+    
+    .form-control.error {
+        border: 1px dotted #cc5965;
+    }
+    
+    .fixed-left {
+        position: fixed;
+    }
+    
+    .navbar-default .navbar-nav>.open>a,
+    .navbar-default .navbar-nav>.open>a:hover,
+    .navbar-default .navbar-nav>.open>a:focus {
+        background-color: #3366CC;
+    }
+    
+    audio::-internal-media-controls-download-button {
+        display: none;
+    }
+    
+    audio::-webkit-media-controls-enclosure {
+        overflow: hidden;
+    }
+    
+    audio::-webkit-media-controls-panel {
+        width: calc(100% + 30px);
+        /* Adjust as needed */
+    }
+    .p-a-md {
+    padding: 1.5rem !important;
+    }
+    .heading-line {
+        height: 2px;
+        background: #e5e5e5;
+        position: relative;
+        margin-bottom: 15px;
+    }
+    table{
+        margin-left: 25px;
+    }
+    .check{
+        margin-top: 250px;
+        margin-left: 59%;
+    }
+    table, th, td {
+    cursor: pointer;
+}

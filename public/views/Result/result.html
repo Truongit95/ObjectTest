@@ -1,0 +1,57 @@
+<div class="margin-top panel panel-primary">
+    <div class="panel-heading">
+        <h4><label>Thông tin</label></h4>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-10">
+                &nbsp;
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>Tên môn: <label>{{dataDetailExam.Name}}</label> </p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Ngày thi: <label>{{dataDetailExam.CreateDate | date: 'dd/MM/yyyy':'UTC'}}</label></p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Thời gian thi: <label>{{duration}} phút</label></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 img-responsive">
+                <canvas id="myCanvas" width="100" height="100"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h4><label>Chi tiết</label></h4>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="row text-center">
+               <table style="width:95%">
+                   <tbody>
+                       <tr style="margin-left: 20px">
+                           <td ng-repeat="result in listResult">
+                               {{$index+1}} 
+                               <label ng-if="result.Correct==true">
+                                   <img src="/images/Ok.png"width="15px">
+                               </label>
+                               <label ng-if="!result.Correct || result.Correct==null">
+                                   <img src="/images/No.png"width="15px">
+                               </label>
+                            </td>
+                       </tr>
+                   </tbody>
+               </table>
+            </div>
+        </div>
+        <div class="row row-pading">
+            <div class="col-md-10 col-md-offset-1 text-center">
+                <button ng-click="onExit()" type="button" class="btn btn-danger">Thoát</button>
+            </div>
+        </div>
+    </div>
+</div>

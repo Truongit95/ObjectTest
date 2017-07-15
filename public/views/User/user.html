@@ -1,0 +1,98 @@
+<div class="panel">
+    <div class="row col-md-12" style="background-image:url('https://cdn-s07.bigschool.vn/ids/img/bg.jpg');margin-left:0">
+        
+        <div class="col-md-3" style="background: rgba(0, 0, 0, 0.6);text-align: center;    margin-left: -15px;">
+            <div class="row" style="margin-top: 15px">
+                <img src="images/user.png" alt="hinh-anh-dai-dien" class="img-exam">
+            </div>
+            <div class="row">
+                <h3 style="color: white">{{name}}</h3>
+            </div>
+             <div class="row">
+                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-edit"></i> Cập nhật</button>
+             </div>
+             <br>
+        </div>
+    </div>
+    <div class="row col-md-12">
+        <div class="panel ">
+            <div class="col-lg-8"> 
+                <div class="p-a-md">
+                <section class="m-b-lg bs-user-info-box">
+                  <h4 class="m-y">Thông tin cá nhân</h4>
+                  <div class="heading-line"></div>
+                  <dl class="dl-horizontal">
+                    <dt>Họ và tên:</dt>
+                    <dd>{{user.Name}}</dd>
+                    <dt>ID tài khoản:</dt>
+                    <dd>{{user.Id}}</dd>
+                    <dd></dd>
+                    <dt>Số điện thoại:</dt>
+                    <dd>{{user.Phone}}</dd>
+                    <dt>Email:</dt>
+                    <dd>{{user.Email}}</dd>
+                    <dt>Ngày tạo:</dt>
+                    <dd>{{user.CreateDate| date: 'dd/MM/yyyy'}}</dd>
+                  </dl>
+                </section>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="myModal" class="modal fade" role="dialog">
+    <form id="formEditUser">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal">X</button>
+                 <h4 class="modal-title">Cập nhật thông tin cá nhân</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal" style="padding: 15px">
+                    <div class="form-group">
+                         <label class="col-sm-4"> Họ tên:  </label>
+                         <div class="col-sm-8">
+                             <input class="form-control"  value="{{user.Name}}" name="name"id="name">
+                         </div>
+                    </div>
+                    <div class="form-group">
+                         <label class="col-sm-4"> Email:  </label>
+                         <div class="col-sm-8">
+                             <input class="form-control"  value="{{user.Email}}" name="email"id="email">
+                         </div>
+                    </div>
+                      <div class="form-group">
+                         <label class="col-sm-4"> Số điện thoại:  </label>
+                         <div class="col-sm-8">
+                             <input class="form-control"  value="{{user.Phone}}" name="sdt"id="sdt">
+                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4">Mật khẩu cũ</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" name="old_password" type="password" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4">Mật khẩu mới</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" name="new_password" type="password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4">Nhập lại mật khẩu mới</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" name="confirm_password" type="password" id="confirm_password">
+                        </div>
+                    </div>
+                    <div class="form-group text-center">
+                        <button class="btn btn-primary" type="submit" ng-click="checkEdit()"><i class="glyphicon glyphicon-ok"></i> Xác nhận</button>
+                    </div>
+                </div>
+            </div>
+         </div>
+      </div>   
+    </form>
+</div>

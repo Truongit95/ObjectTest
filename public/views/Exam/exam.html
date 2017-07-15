@@ -1,0 +1,55 @@
+<div class="col-md-10 col-md-offset-1">
+    <form id="formexam">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>
+                    <p class="font-bold">Chọn đề</p>
+                </h4>
+            </div>
+            <div class="panel-body">
+                <div class="table-bordered">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6 row-pading">
+                                <select class="form-control"id="FacultyId"name="FacultyId" ng-model="FacultyId" ng-options="x.Id as x.Name for x in getListFaculties" ng-change="changeFaculty(FacultyId)">
+                                    <option value="">Chọn Ngành</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 row-pading">
+                                <select class="form-control" name="SubjectId" id="SubjectId" ng-model="SubjectId" ng-options="x.Id as x.Name for x in getListAllSubject" ng-change="changeSubject(SubjectId)">
+                                    <option value="">Chọn Môn</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6 row-pading">
+                                <select class="form-control" id="difficult" name="difficultname">
+                                    <option value='0'>Chọn loại đề </option>
+                                    <option value='1'>Dễ </option>
+                                    <option value='2'>Trung bình </option>
+                                    <option value='3'>Khó </option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 row-pading">
+                                <div class="col-md-12">
+                                    <div class="col-md-10 col-md-offset-1 text-center">
+                                        <button ng-click="checkChoose()"class="btn btn-primary">Vào thi</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6 row-pading">
+                                <button ng-click="onBackHome()" class="btn btn-primary text-left">Trở về</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </form>
+</div>
