@@ -20,10 +20,11 @@
     <script src="./libs/jquery.validate.js"></script>
     <script src="./libs/jquery.blockUI.js"></script>
     <script src="./libs/toastr.min.js"></script>
+    <link rel="shortcut icon" type="image/png" href="./favicon.png"/>
 </head>
 
 <body ng-app="user" ng-controller="rootCtrl" >
-    <div ng-if="$root.isLogin" ng-include src="'/views/shared/header.html'" id="idhead"></div>
+    <div ng-if="$root.isLogin" ng-include src="'/views/shared/header.html'"></div>
 
     <div class="container body" >
         <div ui-view></div>

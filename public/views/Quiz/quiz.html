@@ -102,16 +102,7 @@
                <table style="width:95%">
                     <tbody >
                         <tr> 
-                            <!--<td  ng-repeat="check in checklistResult ">
-                                {{$index+1}}
-                                <label ng-if="check.AnnswerCurrentChoose!=null">
-                                   <img src="/images/Ok.png"width="15px">
-                               </label>
-                               <label ng-if="check.AnnswerCurrentChoose==null">
-                                   <img src="/images/No.png"width="15px">
-                               </label>
-                            </td>-->
-                             <td  ng-repeat="check in checklistResult ">
+                            <td  ng-repeat="check in checklistResult" ng-click="gotoQuestion(check.QuestionId)">
                                 {{$index+1}}
                                 <label ng-repeat="qs in check.Question.Answers | limitTo:4" >
                                    <label ng-if="choosecurrent(check.AnnswerCurrentChoose,qs.Id,qs.Order)==0">

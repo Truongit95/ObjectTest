@@ -3,9 +3,9 @@
     angular
         .module('user')
         .controller('quizCtrl', quizCtrl);
-    quizCtrl.$inject = ['$rootScope', '$scope', 'apiService', 'SweetAlert', '$state', '$interval', '$cookies', '$filter'];
+    quizCtrl.$inject = ['$rootScope', '$scope', 'apiService', 'SweetAlert', '$state', '$interval', '$cookies', '$filter','$window'];
 
-    function quizCtrl($rootScope, $scope, apiService, SweetAlert, $state, $interval, $cookies, $filter) {
+    function quizCtrl($rootScope, $scope, apiService, SweetAlert, $state, $interval, $cookies, $filter,$window) {
         var dataExam=$cookies.getObject('listDetailExam');
         $rootScope.isLogin = true;
         // on load page resutl
@@ -214,6 +214,10 @@
 			}else
 				return false;
 		}
+        $scope.gotoQuestion=function(idquestion){
+            console.log(idquestion);
+            $window.location.hash='questionid'+idquestion;
+        }
     }
 })();
 myApp.filter('secondsToDate', [
