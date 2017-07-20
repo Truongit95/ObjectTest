@@ -53,7 +53,7 @@
                    toastr.warning('Bạn đã tạo đề trước đó, vui lòng hoàn thành xong nhé!', 'Thông báo!');
                     $state.go('detailsexam');
               }else{
-                   $scope.taode( $scope.idmon, $scope.idmon);
+                   $scope.taode( $scope.idmon, $scope.name);
               }
         };
         function checkfail(response){};
@@ -86,6 +86,9 @@
             $cookies.put('isstatus', 0);
         };
         function createfail(response){};
+        $scope.godetail=function(){
+            $state.go('exam');
+        }
     }
 
 })();
