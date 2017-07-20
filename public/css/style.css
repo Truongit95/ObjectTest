@@ -180,7 +180,7 @@
     .navbar-default .navbar-nav>.open>a,
     .navbar-default .navbar-nav>.open>a:hover,
     .navbar-default .navbar-nav>.open>a:focus {
-        background-color: #3366CC;
+           background-color: #f8f8f8;
     }
     
     audio::-internal-media-controls-download-button {
@@ -213,4 +213,32 @@
     }
     table, th, td {
     cursor: pointer;
+}
+.hero-unit .hero-unit-container {
+    text-align: center;
+}
+.hero-unit .hero-unit-container h1 .t-one {
+    color: #3179b9;
+}
+.home-categories .home-categories-container .categories .category .category-container.yellow .icon, .home-categories .home-categories-container .categories .category .category-container.yellow .text {
+    color: #fdbc40;
+}
+.home-categories .home-categories-container .categories .category .category-container .icon {
+    font-size: 25px;
+}
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+i[class*=icon-] {
+    top: 1px;
+    position: relative;
+}
+.icon-calculator:before {
+    content: "\E049";
+}
+*, :after, :before {
+    box-sizing: border-box;
 }
