@@ -180,7 +180,8 @@
     .navbar-default .navbar-nav>.open>a,
     .navbar-default .navbar-nav>.open>a:hover,
     .navbar-default .navbar-nav>.open>a:focus {
-           background-color: #f8f8f8;
+           background-color: lightgreen;
+           cursor: pointer
     }
     
     audio::-internal-media-controls-download-button {
@@ -241,4 +242,7 @@ i[class*=icon-] {
 }
 *, :after, :before {
     box-sizing: border-box;
+}
+ul>li:hover{
+    cursor: pointer
 }

@@ -113,6 +113,7 @@
                 "subjectName":subjectName+" "+$cookies.getObject('datauser').Id+" "+number,   // tiêu đề cho đề thi
                 "userId":$cookies.getObject('datauser').Id  // đề thi này của user nào
             };
+            $cookies.put('idmonhoc',subjectId);
             apiService.apiPost('/api/subjects/generatesheet',da,null,createsucs,createfail);
         };
         function createsucs(response){

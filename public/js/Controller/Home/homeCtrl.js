@@ -54,7 +54,7 @@
                     $state.go('detailsexam');
               }else{
 				   swal({
-                    title: "Chu y",
+                    title: "Lưu Ý",
                     text: "Bạn có đồng ý tạo đề mới không!",
                     type: "info",
                     showCancelButton: true,
@@ -66,8 +66,7 @@
 							swal.close();
 							$scope.taode( $scope.idmon, $scope.name);
 						}
-					})
-                   
+					});
               }
         };
         function checkfail(response){};
@@ -81,12 +80,14 @@
                         //goi api yeu cau tao de thi
                         //neu thang cong thi tra ve ctdt
                         //tao cookies luu id de thi
+                        $cookies.put('Duration',20);
                         var da={
                             "number":20, // số câu cần tạo cho 1 đề
                             "subjectId":idmon,  // id môn học cần tạo đề
                             "subjectName":name+" "+$cookies.getObject('datauser').Id+" "+20,   // tiêu đề cho đề thi
                             "userId":$cookies.getObject('datauser').Id  // đề thi này của user nào
                         };
+                         $cookies.put('idmonhoc',idmon);
                         apiService.apiPost('/api/subjects/generatesheet',da,null,createsucs,createfail);  
                     }
                 });
@@ -98,6 +99,7 @@
             sessionStorage.isStatusquiz = 0;
             $state.go('detailsexam');
             $cookies.put('isstatus', 0);
+           
         };
         function createfail(response){};
         $scope.godetail=function(){

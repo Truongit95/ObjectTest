@@ -9,6 +9,14 @@
 
     function examDetailCtrl($rootScope, $scope, apiService, SweetAlert, $state, $cookies) {
         
+        $scope.monhoc=function(){
+           if( $cookies.get('idmonhoc')==1) return 1;
+           if( $cookies.get('idmonhoc')==2) return 2;
+           if( $cookies.get('idmonhoc')==3) return 3;
+           if( $cookies.get('idmonhoc')==4) return 4;
+           if( $cookies.get('idmonhoc')==5) return 5;
+           if( $cookies.get('idmonhoc')==6) return 6;
+        }
         $rootScope.isLogin = true;
         $scope.onBackExam = function() {
             $state.go('exam');
