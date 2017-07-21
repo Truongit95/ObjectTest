@@ -53,7 +53,21 @@
                    toastr.warning('Bạn đã tạo đề trước đó, vui lòng hoàn thành xong nhé!', 'Thông báo!');
                     $state.go('detailsexam');
               }else{
-                   $scope.taode( $scope.idmon, $scope.name);
+				   swal({
+                    title: "Chu y",
+                    text: "Bạn có đồng ý tạo đề mới không!",
+                    type: "info",
+                    showCancelButton: true,
+                    confirmButtonText: "Đồng ý",
+                    closeOnConfirm: false,
+                    closeOnCancel: true
+					}, function(isConfirm) {
+						if (isConfirm) {
+							swal.close();
+							$scope.taode( $scope.idmon, $scope.name);
+						}
+					})
+                   
               }
         };
         function checkfail(response){};
@@ -68,7 +82,7 @@
                         //neu thang cong thi tra ve ctdt
                         //tao cookies luu id de thi
                         var da={
-                            "number":'20', // số câu cần tạo cho 1 đề
+                            "number":20, // số câu cần tạo cho 1 đề
                             "subjectId":idmon,  // id môn học cần tạo đề
                             "subjectName":name+" "+$cookies.getObject('datauser').Id+" "+20,   // tiêu đề cho đề thi
                             "userId":$cookies.getObject('datauser').Id  // đề thi này của user nào
