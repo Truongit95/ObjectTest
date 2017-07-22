@@ -33,8 +33,8 @@
                     $cookies.remove('idExamNew');
                     $cookies.remove('idmonhoc');
                     //$cookies.remove('idExamNew');
-                    location.reload();
                     toastr.success('Đăng xuất thành công!', 'Thông báo');
+                    location.reload();
                 }
             )
         }

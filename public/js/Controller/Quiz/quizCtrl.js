@@ -82,7 +82,6 @@
             apiService.apiGet('/api/subjects/getexam/detail?questionSheetId='+idExamNew,null,loadsuccess,loadfail);
         }
         function loadsuccess(response){
-            console.log(response.data);
             $scope.listQuestion = response.data;
             $scope.checkchoose();
         }

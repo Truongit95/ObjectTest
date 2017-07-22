@@ -94,25 +94,35 @@
         }
         $scope.createExam = function(){
             var number=0;
+            var start=0;
+            var end=0;
             if($('#difficult').val()==1){
                 number=20;
+                start=0.1;
+                end=0.3;
                 $cookies.put('Duration',20);
             }else if($('#difficult').val()==2){
                 number=30;
-                 $cookies.put('Duration',30);
+                start=0.4;
+                end=0.6;
+                $cookies.put('Duration',30);
             }else if($('#difficult').val()==3){
                 number=40;
-                 $cookies.put('Duration',40);
+                start=0.7;
+                end=0.9;
+                $cookies.put('Duration',40);
             }else{
                 number=0;
-                 $cookies.put('Duration',0);
+                start=0;
+                end=0;
+                $cookies.put('Duration',0);
             };
             var da={
                 "number":number, // số câu cần tạo cho 1 đề
                 "subjectId":subjectId,  // id môn học cần tạo đề
                 "subjectName":subjectName+" "+$cookies.getObject('datauser').Id+" "+number,   // tiêu đề cho đề thi
-                "bgDiff":0.1,//do kho de thi nho nhat
-                "edDiff":0.7, // do kho de thi cao nhat
+                "bgDiff":start,//do kho de thi nho nhat
+                "edDiff":end, // do kho de thi cao nhat
                 "userId":$cookies.getObject('datauser').Id  // đề thi này của user nào
             };
             $cookies.put('idmonhoc',subjectId);
