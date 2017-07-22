@@ -111,6 +111,8 @@
                 "number":number, // số câu cần tạo cho 1 đề
                 "subjectId":subjectId,  // id môn học cần tạo đề
                 "subjectName":subjectName+" "+$cookies.getObject('datauser').Id+" "+number,   // tiêu đề cho đề thi
+                "bgDiff":0.1,//do kho de thi nho nhat
+                "edDiff":0.7, // do kho de thi cao nhat
                 "userId":$cookies.getObject('datauser').Id  // đề thi này của user nào
             };
             $cookies.put('idmonhoc',subjectId);

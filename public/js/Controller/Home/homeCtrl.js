@@ -85,6 +85,8 @@
                             "number":20, // số câu cần tạo cho 1 đề
                             "subjectId":idmon,  // id môn học cần tạo đề
                             "subjectName":name+" "+$cookies.getObject('datauser').Id+" "+20,   // tiêu đề cho đề thi
+                            "bgDiff":0.1,//do kho de thi nho nhat
+                            "edDiff":0.7, // do kho de thi cao nhat
                             "userId":$cookies.getObject('datauser').Id  // đề thi này của user nào
                         };
                          $cookies.put('idmonhoc',idmon);
