@@ -1,4 +1,4 @@
-(function() {
+﻿(function() {
     'use strict';
 
     angular
@@ -98,7 +98,7 @@
             var end=0;
             if($('#difficult').val()==1){
                 number=20;
-                start=0.1;
+                start=0.0;
                 end=0.3;
                 $cookies.put('Duration',20);
             }else if($('#difficult').val()==2){
@@ -109,7 +109,7 @@
             }else if($('#difficult').val()==3){
                 number=40;
                 start=0.7;
-                end=0.9;
+                end=1;
                 $cookies.put('Duration',40);
             }else{
                 number=0;
