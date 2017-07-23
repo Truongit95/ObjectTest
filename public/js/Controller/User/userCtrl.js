@@ -18,8 +18,18 @@
                 $state.go('home');
             }
         }
+         $scope.checkEditone=function(){
+            if($('#old_password').val()!=null && $('#new_password').val()!=null && $('#confirm_password').val()!=null)
+            {
+
+            }
+            else{
+                 $scope.checkEdit();
+            }
+        }
         $scope.checklogin();
         $scope.checkEdit=function(){
+
                 $.validator.addMethod('pass',
                 function(value, element) {
                     return /^[A-Za-z0-9\d=!\-@._*]+$/.test(value)
@@ -120,14 +130,15 @@
                     $scope.updateUser();
                 }
             })
+            
         };
         $scope.updateUser=function(){
             apiService.apiPost('/api/users/update',{
-                  "id":$scope.user.Id,    // id user cần được update
-                  "name":$('#name').val(),   // tên người dùng cần update
-                  "email":$('#email').val(),   // email cần update
-                  "phone":$('#sdt').val(),    // số điện thoại update
-                  "newpass":$.md5($('#confirm_password').val()),
+                //   "id":$scope.user.Id,    // id user cần được update
+                //   "name":$('#name').val(),   // tên người dùng cần update
+                //   "email":$('#email').val(),   // email cần update
+                //   "phone":$('#sdt').val(),    // số điện thoại update
+                    "newpass":$.md5($('#confirm_password').val()),
             },null,success,fail);
         }
         function success(response){

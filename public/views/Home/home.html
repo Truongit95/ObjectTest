@@ -101,6 +101,11 @@
                         </div>
                         <div class="top-quizs">
                                <h4><div class="emojione-paragraph undefined"><svg class="emojione"><description>🏆</description><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/svg/emojione.sprites.svg#emoji-1f3c6"></use></svg> Top người thi điểm cao</div></h4>
+                            <div class="col-md-12">
+                                <ul ng-repeat="top in listScope | limitTo:10">
+                                    <li><label>Tên: &nbsp;</label><label style="color: red">{{top.Name}}</label></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

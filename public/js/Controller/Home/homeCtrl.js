@@ -107,6 +107,14 @@
         $scope.godetail=function(){
             $state.go('exam');
         }
+        $scope.getMediumScore=function(){
+            apiService.apiGet('/api/users/gettopmark',null,thanhcong,loi);
+        }
+        function thanhcong(response){
+            $scope.listScope=response.data;
+        };
+        function loi(response){};
+        $scope.getMediumScore();
     }
 
 })();
