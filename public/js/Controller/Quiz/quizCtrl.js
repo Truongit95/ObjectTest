@@ -1,4 +1,4 @@
-(function() {
+﻿(function() {
     'use strict';
     angular
         .module('user')
@@ -155,7 +155,6 @@
         $scope.checklogin();
         //update is choose answer and question
         $scope.checkStuff = function(idex,idques, idanswer) {
-			console.log(idanswer);
             apiService.apiPost('/api/subjects/update/answer', {
                 "questionSheetId": idex,
                 "questionId": idques,
