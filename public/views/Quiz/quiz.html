@@ -37,12 +37,34 @@
                                         <input type="radio" name="{{$parent.$index}}"  ng-click="checkStuff(id,cauhoi.QuestionId,tl.Id)" id="{{tl.Id}}">
                                         <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
                                         <div ng-if="!check(tl.Content)">
-                                            <label ng-bind-html="tl.Content| trustAsHtml">{{tl.Content}} </label> 
+                                            <div ng-if="$index==0">
+                                                 A. <label  ng-bind-html="tl.Content| trustAsHtml">{{tl.Content}}</label> 
+                                            </div>
+                                            <div ng-if="$index==1">
+                                                 B. <label  ng-bind-html="tl.Content| trustAsHtml"> {{tl.Content}}</label> 
+                                            </div>
+                                            <div ng-if="$index==2">
+                                                 C. <label  ng-bind-html="tl.Content| trustAsHtml"> {{tl.Content}}</label> 
+                                            </div>
+                                            <div ng-if="$index==3">
+                                                 D. <label  ng-bind-html="tl.Content| trustAsHtml"> {{tl.Content}}</label> 
+                                            </div>
                                         </div>
                                         <div ng-if="check(tl.Content)">
-                                            <img ng-src="{{tl.Content}}"  class="img-responsive">
+                                            <div ng-if="$index==0">
+                                                 A.  <img ng-src="{{tl.Content}}"  class="img-responsive">
+                                            </div>
+                                            <div ng-if="$index==1">
+                                                 B. <img ng-src="{{tl.Content}}"  class="img-responsive">
+                                            </div>
+                                            <div ng-if="$index==2">
+                                                 C.  <img ng-src="{{tl.Content}}"  class="img-responsive"> 
+                                            </div>
+                                            <div ng-if="$index==3">
+                                                 D.  <img ng-src="{{tl.Content}}"  class="img-responsive">
+                                            </div>
                                         </div>
-                                     </label>
+                                    </label>
                                 </div>
                             </ul>
                             <hr>
@@ -58,10 +80,13 @@
                             <ul ng-repeat="tl in cauhoi.Question.Answers">
                                 <div class="radio">
                                     <label>
-                                    <input type="radio" name="{{$parent.$index}}"ng-click="checkStuff(cauhoi.QuestionId,tl.Id)">
-                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                    {{tl.Content}}
-                                </label>
+                                        <input type="radio" name="{{$parent.$index}}"ng-click="checkStuff(id,cauhoi.QuestionId, tl.Id)"id="{{tl.Id}}">
+                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        <label ng-if="$index==0">A. {{tl.Content}}</label>
+                                        <label ng-if="$index==1">B. {{tl.Content}} </label>
+                                        <label ng-if="$index==2">C. {{tl.Content}}</label>
+                                        <label ng-if="$index==3">D. {{tl.Content}}</label>
+                                    </label>
                                 </div>
                             </ul>
                             <hr>
@@ -104,7 +129,7 @@
                         <tr> 
                             <td  ng-repeat="check in checklistResult" ng-click="gotoQuestion(check.QuestionId)">
                                 {{$index+1}}
-                                <label ng-repeat="qs in check.Question.Answers | limitTo:4" >
+                                <label ng-repeat="qs in check.Question.Answers | limitTo:4" style="color: green" >
                                    <label ng-if="choosecurrent(check.AnnswerCurrentChoose,qs.Id,qs.Order)==0">
                                       <div ng-if="notchoose(1)==true">
 										 <img src="/images/No.png"width="15px">
