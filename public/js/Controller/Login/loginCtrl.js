@@ -41,7 +41,7 @@
         };
 
         function isLoginFail(response) {
-            toastr.error(response.data, 'Thông báo!')
+            toastr.error('Không kết nối được đến Server hoặc '+response.data, 'Thông báo!')
             $cookies.remove('isStatusLogin');
         };
 
