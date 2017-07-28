@@ -37,10 +37,24 @@
                 },
                 function() {
                     swal.close();
+                    $scope.nopbai();
                     $scope.goResult();
                 }
             )
         };
+        $scope.nopbai=function(){
+            var ds1= $cookies.getObject("choose1");
+            var ds2= $cookies.getObject("choose1");
+            for(var i=0; i<=list1.length;i++){
+                   apiService.apiPost('/api/subjects/update/answer', {
+                        "questionSheetId": $cookies.get('idExamNew'),
+                        "questionId": list1[i],
+                        "answerId": list2[i]
+                    }, null, ok, fa);
+            }
+        };
+        function ok(response){};
+        function fa(response){}
           //check de thi
         $scope.loadQuestion=function(){
             apiService.apiGet('/api/subjects/completed/'+$cookies.getObject('datauser').Id,null,checksuccess,checkfail);
@@ -154,7 +168,15 @@
             //onclick jquery
         $scope.checklogin();
         //update is choose answer and question
+        $cookies.putObject("choose1",null);
+        $cookies.putObject("choose2",null);
+        var list1=[];
+        var list2=[];
         $scope.checkStuff = function(idex,idques, idanswer) {
+            list1.push(idques);
+            $cookies.putObject("choose1",list1);
+            list2.push(idanswer);
+            $cookies.putObject("choose2",list2);
             apiService.apiPost('/api/subjects/update/answer', {
                 "questionSheetId": idex,
                 "questionId": idques,
@@ -163,11 +185,13 @@
         }
 
         function successPostAnswer(response) {
-            
+            count=0;
         }
-
+        var count=0;
         function failPostAnswer(response) {
-            toastr.error(response.data+' Vui lòng liên hệ nhân viên. Can not update Anwer', 'Thông báo!');
+            count++;
+            if(count==1|| count==10)
+                toastr.error('Không thể kết nối đến Server vui lòng thử lại!', 'Thông báo!');
         }
         // kiem tra co phai hinh anh hay khong
         $scope.check=function(element){

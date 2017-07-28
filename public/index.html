@@ -24,7 +24,7 @@
 </head>
 
 <body ng-app="user" ng-controller="rootCtrl" >
-    <div ng-if="$root.isLogin" ng-include src="'/views/shared/header.html'"></div>
+    <div ng-show="$root.isLogin" ng-include src="'/views/shared/header.html'"></div>
 
     <div class="container body" >
         <div ui-view></div>

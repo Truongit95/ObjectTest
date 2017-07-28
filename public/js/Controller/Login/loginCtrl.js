@@ -32,7 +32,7 @@
 
         function isLoginSuccess(response) {
             data = response.data;
-           location.reload();
+            location.reload();
             console.log('login successfully');
             $cookies.put('isStatusLogin', 1);
             $cookies.putObject('datauser', data);

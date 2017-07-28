@@ -1,9 +1,7 @@
 var myApp = angular.module('user', ['ui.router', 'oitozero.ngSweetAlert', 'ngCookies'])
 
-myApp.config(function($stateProvider, $urlRouterProvider) {
-
+myApp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
     $urlRouterProvider.otherwise('/home');
-
     $stateProvider
         .state('login', {
             url: '/login',
@@ -47,3 +45,4 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
         })
 
 })
+
