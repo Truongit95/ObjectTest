@@ -185,13 +185,13 @@
         }
 
         function successPostAnswer(response) {
-            count=0;
+            // count=0;
         }
         var count=0;
         function failPostAnswer(response) {
-            count++;
-            if(count==1|| count==10)
-                toastr.error('Không thể kết nối đến Server vui lòng thử lại!', 'Thông báo!');
+            // count++;
+            // if(count==1|| count==10)
+            //     toastr.error('Không thể kết nối đến Server vui lòng thử lại!', 'Thông báo!');
         }
         // kiem tra co phai hinh anh hay khong
         $scope.check=function(element){
