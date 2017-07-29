@@ -13,7 +13,7 @@
             apiPost: apiPost
         }
         var urld = 'http://104.198.181.185:3000';
-
+	//var urld = 'http://localhost:3000';
         function apiGet(url, config, successCallback, errorCallback) {
             return $http.get(urld + url, config).then(successCallback, errorCallback);
         }

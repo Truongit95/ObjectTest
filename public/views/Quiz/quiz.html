@@ -23,7 +23,7 @@
             <div class="container ">
                 <div class="row ">
                     <div class="col-sm-12 " ng-repeat="cauhoi in listQuestion">
-                        <div ng-if="cauhoi.Question.Audio==false">
+                        <div ng-if="cauhoi.Question.Audio==false" id="questionid{{$index}}">
                             <div>
                                 <label>Câu: {{$index+1}}</label>
                             </div>
@@ -127,7 +127,7 @@
                <table style="width:95%">
                     <tbody >
                         <tr> 
-                            <td  ng-repeat="check in checklistResult" ng-click="gotoQuestion(check.QuestionId)">
+                            <td  ng-repeat="check in checklistResult" ng-click="gotoQuestion($index)">
                                 {{$index+1}}
                                 <label ng-repeat="qs in check.Question.Answers | limitTo:4" style="color: green" >
                                    <label ng-if="choosecurrent(check.AnnswerCurrentChoose,qs.Id,qs.Order)==0">

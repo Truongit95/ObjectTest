@@ -3,9 +3,9 @@
     angular
         .module('user')
         .controller('quizCtrl', quizCtrl);
-    quizCtrl.$inject = ['$rootScope', '$scope', 'apiService', 'SweetAlert', '$state', '$interval', '$cookies', '$filter','$window'];
+    quizCtrl.$inject = ['$rootScope', '$scope', 'apiService', 'SweetAlert', '$state', '$interval', '$cookies', '$filter','$window','$location'];
 
-    function quizCtrl($rootScope, $scope, apiService, SweetAlert, $state, $interval, $cookies, $filter,$window) {
+    function quizCtrl($rootScope, $scope, apiService, SweetAlert, $state, $interval, $cookies, $filter,$window,$location) {
         var dataExam=$cookies.getObject('listDetailExam');
         $rootScope.isLogin = true;
         // on load page resutl
@@ -240,7 +240,8 @@
 		}
         $scope.gotoQuestion=function(idquestion){
             console.log(idquestion);
-            $window.location.hash='questionid'+idquestion;
+            $location.hash('questionid'+idquestion);
+            $('#myModal').modal('hide');
         }
     }
 })();
